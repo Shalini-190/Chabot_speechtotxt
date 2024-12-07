@@ -1,0 +1,32 @@
+Introduction:  
+The objective of this project is to build a system that can answer user queries based on information provided in a text document extracted from a video. The system will train a question-answering model using the pre-extracted and preprocessed text as input. If the model cannot find an answer within its trained dataset, it will perform a web search specifically related to the topic of the video.
+
+Approach:
+
+1. Video Selection and Audio Extraction:
+   - Select a Video: Choose a relevant video on the topic (e.g., Bitcoin).
+   - Extract Audio: Use ffmpeg to extract audio from the video.
+
+2. Transcription of Audio to Text:
+   - Transcription Tool: Use a transcription service like Google Speech-to-Text, IBM Watson, or open-source libraries like SpeechRecognition in Python.
+   - Save as Text File: Once the transcription is done, save the text in a .docx or .txt file for further processing.
+
+3. Text Preprocessing:
+   - Data Cleaning: Clean the transcribed text by removing filler words, correcting errors, and formatting it.
+   - Save Processed Text: Save the cleaned text into a Word document (.docx) to be used for training.
+
+4. Train a Question-Answering Model:
+   - Model Selection: Use pre-trained language models like BERT, GPT, or T5 for fine-tuning on your specific dataset (e.g., Bitcoin).
+   - Fine-Tuning: Fine-tune the model using the text data extracted from the video. Libraries like transformers by Hugging Face can be useful.
+
+5. Integrate Web Search for Unknown Queries:
+   - Search Integration: Implement a fallback mechanism where if the model cannot find the answer, it queries the web.
+   - Use an API: Utilize APIs like Google Custom Search or Bing Search API to fetch relevant information.
+   - Topic-Specific Filtering: Ensure that the search results are filtered to only include content relevant to the original video topic.
+
+6. Deploy the Model:
+   - Web Interface: Develop a simple web interface or chatbot where users can ask questions.
+   - Backend Logic: Implement logic where the system first checks the model's answers, and if no answer is found, it performs a web search.
+
+7. Testing and Refinement:
+   - Test the Model: Perform thorough testing with different questions to ensure accuracy.
